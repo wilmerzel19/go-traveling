@@ -1,33 +1,18 @@
+import { Link } from "react-router-dom"
 import { Title } from "../components/Title"
+import { useEffect, useState } from "react"
 
 export const Hotels = () => {
-  let hotels = [
-    {
-      name: 'Seminoles Hotel',
-      starring: 4,
-      price: 100,
-      image: 'images/hotels/seminole.jpg'
-    },
-    {
-      name: 'Princess Hilton',
-      starring: 4.5,
-      price: 125,
-      image: 'images/hotels/hilton.jpg'
-    },
-    {
-      name: 'Express Holiday Inn',
-      starring: 4.5,
-      price: 125,
-      image: 'images/hotels/express.jpg'
-    },{
-      name: 'Crown Plaza',
-      starring: 3.9,
-      price: 95,
-      image: 'images/hotels/crown.jpg'
-    },
-  ]
+  const [hotels, setHotels] = useState([])
+  useEffect(() => {
+    fetch('https://api-tests.workingpos.com/api/go-traveling/hotels')
+      .then((response) => response.json())
+      .then((data) => setHotels(data.data))
+  }, [])
+ 
   return (
     <div >
+      <Link to="/posts">
        <Title texto="Busca un hotel cerca de ti" />
         <div className="grid grid-cols-1 gap-4 mt-4 sm:grid-cols-2">
           {hotels.map((hotel) => (
@@ -44,10 +29,12 @@ export const Hotels = () => {
                     
                   </span>
                   </div>
+                
               </div>
             </div>
           ))}
           </div>
+          </Link>
     </div>
   )
 }
