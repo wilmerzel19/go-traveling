@@ -16,11 +16,12 @@ function App() {
         <div className="px-3 mt-8 sm:px-2">
           <Routes>
             <Route path="/" element={<Hotels />}></Route>
+            
             <Route path="/flights" element={<Flights />}></Route>
             <Route path="/foods" element={<Foods />}></Route>
             <Route path="/transports" element={<Transports />}></Route>
 
-            <Route path="/posts" element={<Posts/>} />
+            <Route path="/posts/:id" element={<Posts/>} />
           </Routes>
         </div>
       </div>

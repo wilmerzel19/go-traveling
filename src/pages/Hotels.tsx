@@ -12,12 +12,12 @@ export const Hotels = () => {
 
   return (
     <div>
-      <Link to="/posts">
+      
         <Title texto="Busca un hotel cerca de ti" />
         <div className="grid grid-cols-1 gap-4 mt-4 sm:grid-cols-2">
           {hotels.map((hotel) => (
+            <Link to={`/posts/${hotel.id}`} key={hotel.id}> 
             <div
-              key={hotel.name}
               className="overflow-hidden bg-white rounded-lg shadow-md hover:cursor-pointer"
             >
               <img
@@ -36,9 +36,10 @@ export const Hotels = () => {
                 </div>
               </div>
             </div>
+            </Link>
           ))}
         </div>
-      </Link>
+    
     </div>
   );
 };
