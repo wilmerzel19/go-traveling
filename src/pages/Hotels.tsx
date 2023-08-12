@@ -12,7 +12,7 @@ export const Hotels = () => {
 
   return (
     <div>
-      <Link to="/post">
+      <Link to="/posts">
         <Title texto="Busca un hotel cerca de ti" />
         <div className="grid grid-cols-1 gap-4 mt-4 sm:grid-cols-2">
           {hotels.map((hotel) => (
