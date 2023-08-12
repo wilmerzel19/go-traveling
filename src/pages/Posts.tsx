@@ -1,4 +1,3 @@
-import { Title } from "../components/Title";
 import { useEffect, useState } from 'react';
 
 export const Posts = () => {
