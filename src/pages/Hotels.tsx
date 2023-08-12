@@ -2,8 +2,16 @@ import { Link } from "react-router-dom";
 import { Title } from "../components/Title";
 import { useEffect, useState } from "react";
 
+type Hotel = {
+  id: number;
+  name: string;
+  image: string;
+  price: number;
+  starring: number;
+};
+
 export const Hotels = () => {
-  const [hotels, setHotels] = useState([]);
+  const [hotels, setHotels] = useState<Hotel[]>([]);
   useEffect(() => {
     fetch("https://api-tests.workingpos.com/api/go-traveling/hotels")
       .then((response) => response.json())
@@ -15,7 +23,7 @@ export const Hotels = () => {
       
         <Title texto="Busca un hotel cerca de ti" />
         <div className="grid grid-cols-1 gap-4 mt-4 sm:grid-cols-2">
-          {hotels.map((hotel) => (
+          {hotels.map((hotel :Hotel) => (
             <Link to={`/posts/${hotel.id}`} key={hotel.id}> 
             <div
               className="overflow-hidden bg-white rounded-lg shadow-md hover:cursor-pointer"
