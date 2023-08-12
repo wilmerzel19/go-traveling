@@ -9,10 +9,18 @@ export const Hotels = () => {
       .then((response) => response.json())
       .then((data) => setHotels(data.data))
   }, [])
+  //creame la funcion onclick
+   const handleClick = () => {
+
+  
+  }
+
  
   return (
     <div >
-      <Link to="/posts">
+
+     <Link to='/post'>
+      <a onClick={handleClick } >
        <Title texto="Busca un hotel cerca de ti" />
         <div className="grid grid-cols-1 gap-4 mt-4 sm:grid-cols-2">
           {hotels.map((hotel) => (
@@ -34,7 +42,10 @@ export const Hotels = () => {
             </div>
           ))}
           </div>
+        
+          </a>
           </Link>
+          
     </div>
   )
 }
